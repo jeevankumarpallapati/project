@@ -1,0 +1,138 @@
+<div class="body-content body-cm1">
+    <div class="content-header business-name-div mb-3 cform">
+        <div class="business-name-child">
+            <div class="d-flex">
+                <div class="mr-2">
+                    <button disabled aria-label="nothing" class="business-icon rounded-circle">
+                        {{ businessNameFirstLetter }}
+                    </button>
+                </div>
+                <div class="businessName">
+                    <h4 class="m-0">{{ businessName }}</h4>
+                    <h5 class="m-0"> Existing Automobile Business</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+
+    <div class="d-flex flex-column">
+        <div class="d-flex flex-row ">
+            <div class="col-md-6">
+                <span>Task Name <span style="color: red;"> *</span></span>&nbsp;
+                <mat-form-field appearance="outline">
+                    <mat-select [formControl]="tasks" multiple>
+                        <mat-option *ngFor="let task of taskList" [value]="task">{{task}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <span>Business Verticals<span style="color: red;"> *</span></span>&nbsp;
+                <mat-form-field appearance="outline">
+                    <input matInput>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex flex-column">
+        <div class="d-flex flex-row">
+            <div class="col-md-6">
+                <span>Location Name <span style="color: red;"> *</span></span>&nbsp;
+                <mat-form-field appearance="outline">
+                    <mat-select [formControl]="locations" multiple>
+                        <mat-option *ngFor="let location of locationList" [value]="location">{{location}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <span>Branch Name <span style="color: red;"> *</span></span>&nbsp;
+                <mat-form-field appearance="outline">
+                    <mat-select [formControl]="branches" multiple>
+                        <mat-option *ngFor="let branch of branchList" [value]="branch">{{branch}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex flex-column">
+        <div class="d-flex flex-row">
+            <div class="col-md-6">
+                <span>Department<span style="color: red;"> *</span></span>&nbsp;
+                <mat-form-field appearance="outline">
+                    <mat-select [formControl]="departments" multiple>
+                        <mat-option *ngFor="let department of departmentList" [value]="department">{{department}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <span>Designation<span style="color: red;"> *</span></span>&nbsp;
+                <mat-form-field appearance="outline">
+                    <mat-select [formControl]="designations" multiple>
+                        <mat-option *ngFor="let designation of designationList" [value]="designation">{{designation}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex flex-column">
+        <div class="d-flex flex-row">
+            <div class="col-md-6">
+                <span>Employee Name<span style="color: red;"> *</span></span>&nbsp;
+                <mat-form-field appearance="outline">
+                    <mat-select [formControl]="employees" multiple>
+                        <mat-option *ngFor="let employee of employeeList" [value]="employee">{{employee}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <span>Start Date / Time<span style="color: red;"> *</span></span>&nbsp;
+                <input type="date"> &nbsp;
+                <input type="time">
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex flex-column">
+        <div class="d-flex flex-row">
+            <div class="col-md-6">
+                <span>End Date / Time<span style="color: red;"> *</span></span>&nbsp;
+                <input type="date"> &nbsp;
+                <input type="time">
+            </div>
+            <div class="col-md-6">
+                <span>Due Date / Time<span style="color: red;"> *</span></span>&nbsp;
+                <input type="date"> &nbsp;
+                <input type="time">
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="d-flex flex-column">
+        <div class="d-flex flex-row">
+            <div class="col-md-6">
+                <span>Comments<span style="color: red;"> *</span></span>&nbsp;
+                <mat-form-field appearance="outline">
+                    <textarea matInput></textarea>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="d-flex flex-row justify-content-end cform">
+        <button mat-raised-button (click)="getNewTask()" style="color: rgb(49, 42, 42);">ADD NEW TASK</button>
+    </div>
+    <br />
+    <mat-divider></mat-divider>
+    <br />
+    <div class="d-flex flex-row justify-content-end cform">
+        <button mat-raised-button (click)="getReset()" style="color: rgb(31, 32, 31);">RESET</button>&nbsp;&nbsp;
+        <button mat-raised-button (click)="getSubmit($event)" style="color: rgb(22, 24, 22);">SUBMIT</button>
+    </div>
+
+</div>

@@ -1,0 +1,17 @@
+td, th {
+    border: 1px solid #DDDDDD;
+    text-align: left;
+    padding: 8px;
+  }
+.select_org {
+  margin-left: 50px;
+}
+.account_type {
+  margin-left: 85px;
+}
+.gl_heads {
+  margin-left: 35px;
+}
+tr:nth-child(even) {
+  background-color: #DDDDDD;
+}

@@ -1,0 +1,76 @@
+<div class="container">
+    <div class="row">
+        <div>
+            <strong>Business name</strong><br>
+            <div class="col-md-4">
+                <h2>Document Range
+
+                    Configuration </h2>
+
+            </div>
+            <div class="col-md-8" style="padding-top:40px; padding-right: 40px;">
+                <p class="line"></p>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <label for="inputSelect">Select Organization</label>
+        </div>
+
+
+        <div class="col-md-10">
+
+            <!-- <mat-select matNativeControl required> -->
+            <select class="form-select form-select-lg mb-6" aria-label=".form-select-lg example">
+                <!-- <mat-option>--</mat-option> -->
+                <option *ngFor="let x of Organization" [value]="Organization">
+                    {{x}}
+                </option>
+            </select>
+        </div><br><br>
+        <div class="row">
+            <div class="col-md-12">
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                    <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="position">
+                        <th mat-header-cell *matHeaderCellDef> No. </th>
+                        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="ModuleName">
+                        <th mat-header-cell *matHeaderCellDef> ModuleName </th>
+                        <td mat-cell *matCellDef="let element"> {{element.ModuleName}} </td>
+                    </ng-container>
+
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="SubModuleName">
+                        <th mat-header-cell *matHeaderCellDef> SubModuleName </th>
+                        <td mat-cell *matCellDef="let element"> {{element.SubModuleName}} </td>
+                    </ng-container>
+
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="StartRange">
+                        <th mat-header-cell *matHeaderCellDef> StartRange </th>
+                        <td mat-cell *matCellDef="let element"> {{element.StartRange}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="EndRange">
+                        <th mat-header-cell *matHeaderCellDef> EndRange </th>
+                        <td mat-cell *matCellDef="let element"> {{element.EndRange}} </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

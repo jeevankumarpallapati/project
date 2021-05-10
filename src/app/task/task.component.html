@@ -1,0 +1,149 @@
+<!-- <h1>My name is {{name}}</h1> -->
+<!-- <div [ngClass]="'first'">
+    <p [ngClass]="'second'">ngClass as a String</p>
+</div> -->
+
+
+<!-- <div *ngFor="let user of users" [ngClass]="' fifth'">
+    {{user}}
+</div> -->
+
+
+
+<!-- <h2>ngIf</h2>
+
+<h2 *ngIf="status; else elseBlock">it is ngif block</h2>
+<ng-template #elseBlock>
+<h2>it is else block </h2>
+</ng-template> -->
+
+
+
+<!-- <h1 appCustamStyle>Switch case</h1>
+
+<div [ngSwitch]="mychoice" >
+   
+    <!-- <div *ngSwitchCase="'one'" #one="ngModel" [(ngModel)]="first"> 
+        <div *ngSwitchCase="'one'">
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+                <mat-label>Company (disabled)</mat-label>
+                <input matInput disabled value="Google">
+            </mat-form-field>
+
+            <table class="example-full-width" cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>First name</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <mat-label> Last Name</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </td>
+                </tr>
+            </table>
+
+            <p>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Address</mat-label>
+                    <textarea matInput placeholder="Ex. 100 Main St"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Address 2</mat-label>
+                    <textarea matInput></textarea>
+                </mat-form-field>
+            </p>
+
+            <table class="example-full-width" cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>City</mat-label>
+                            <input matInput placeholder="KHAMMAM">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>State</mat-label>
+                            <input matInput placeholder="TS">
+                        </mat-form-field>
+                    </td>
+
+                </tr>
+            </table>
+        </form>
+
+
+
+    </div>
+    <div *ngSwitchCase="'two'">
+        <button mat-button>submit</button>
+        <button mat-button color="primary">reset</button>
+
+    </div>
+    <div *ngSwitchDefault>Defualt value</div>
+</div> -->
+
+
+
+<!-- <button mat-button (click)="onClick()">submit</button> -->
+
+
+
+
+
+
+
+<!-- <mat-card>
+
+
+    <!-- <ol>
+        <li>
+            <button mat-raised-button (click)="openDialog()">Pick one</button>
+        </li>
+        <li *ngIf="animal">
+            You chose: <i>{{animal}}</i>
+        </li>
+    </ol> -->
+
+<!-- <button mat-raised-button (click)="openDialog()">Open Dailog</button> 
+
+    <h2>Http link</h2>
+    <ul *ngFor="let x of  Data">
+        <li>{{x}}</li>
+    </ul>
+
+</mat-card> -->
+
+<!-- <h2 *ngFor="let x of  Data">{{x}}</h2> -->
+<!-- <ul *ngFor="let x of  Data">
+    <li>{{x}}</li>
+</ul> -->
+
+<!-- <h1>fetching data by get method</h1>
+<table style="border: 2px;border-collapse: collapse;">
+    <tr>
+        <th>username</th>
+        <th>name</th>
+        <th>id</th>
+    </tr>
+    <tr *ngFor="let item of Data">
+        <td>{{item.username}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.id}}</td>
+    </tr>
+</table> -->
+
+<h1>{{share.childData}}</h1>
+
+<br />
+
+<app-shared #shared [parent]="'task'" (child)="displayMessageFromChild($event)"></app-shared>
+
+<!-- (child)="displayMessageFromChild($event)" -->
+<h1>{{childMessage}}</h1>

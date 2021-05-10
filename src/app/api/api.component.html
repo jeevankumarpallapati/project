@@ -1,0 +1,27 @@
+<h2>Registration Form</h2>
+<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group ">
+                <label for="inputUsername" class="form-label">title</label>
+                <input type="text" class="form-control" placeholder="Username" name="title" aria-label="Username"
+                    aria-describedby="basic-addon1" ngModel>
+            </div>
+            <!-- <div class="form-group ">
+                <label for="inputEmail4" class="form-label">Email</label>
+                <input type="email" class="form-control" placeholder="mail-id" name="email" aria-label="E-mail"
+                    aria-describedby="basic-addon1" ngModel>
+            </div> -->
+            <div class="form-group ">
+                <label for="inputPassword4" class="form-label">author</label>
+                <input type="text" class="form-control" placeholder="Password" name="author" id="inputAuthor4" ngModel>
+            </div>
+            <!-- <div class="form-group ">
+                <label for="inputnumber" class="form-label">Mobile number</label>
+                <input type="number" class="form-control" placeholder="Mobile Number" name="number"
+                    aria-label="Enter Mobile No" aria-describedby="basic-addon1" ngModel>
+            </div> -->
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+    </div>
+</form>

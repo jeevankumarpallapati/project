@@ -1,0 +1,124 @@
+<div class="body-content body-cm1">
+    <div class="content-header business-name-div mb-3 cform">
+        <div class="business-name-child">
+            <div class="d-flex">
+                <div class="mr-2">
+                    <button disabled aria-label="nothing" class="business-icon rounded-circle">
+                        {{ businessNameFirstLetter }}
+                    </button>
+                </div>
+                <div class="businessName">
+                    <h4 class="m-0">{{ businessName }}</h4>
+                </div>
+            </div>
+        </div>
+        <button (click)="actionForResetButton()" style="color: #fff;float: right;">RESET</button>
+    </div>
+    <!-- <lib-text-separator [title]="separetorTitle"></lib-text-separator> -->
+</div>
+
+<section>
+    <form [formGroup]="assetClassForm" class="cform">
+        <div class="d-flex flex-row ">
+            <div class="col-md-6">
+                <span class="select_org">Select Organization<span style="color: red;"> *</span></span>&nbsp;
+                <mat-form-field appearance="outline">
+                    <mat-select formControlName="select_org" [(ngModel)]="newItem.organization">
+                        <mat-option *ngFor="let organization of organizationList" [value]="organization">
+                            {{organization}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="assetClassForm.controls['select_org'].invalid">Please select Organization
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <span class="gl_group_name">GL Group Name<span style="color: red;"> *</span></span>&nbsp;
+                <mat-form-field appearance="outline">
+                    <mat-select formControlName="gl_group_name" [(ngModel)]="newItem.glgroupname">
+                        <mat-option *ngFor="let grp_name of groupList" [value]="grp_name">
+                            {{grp_name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="assetClassForm.controls['gl_group_name'].invalid">Please enter
+                        GL Group Name
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="d-flex flex-row ">
+            <div class="col-md-6">
+                <span class="account_type">Account Type<span style="color: red;"> *</span></span>&nbsp;
+                <mat-form-field appearance="outline">
+                    <mat-select formControlName="account_type" [(ngModel)]="newItem.acc_type">
+                        <mat-option *ngFor="let acc_type of accountList" [value]="acc_type">
+                            {{acc_type}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="assetClassForm.controls['account_type'].invalid">Please select Account Type
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <span class="gl_heads">GL Heads<span style="color: red;"> *</span></span>&nbsp;
+                <mat-form-field appearance="outline">
+                    <mat-select formControlName="gl_heads" [(ngModel)]="newItem.glheads">
+                        <mat-option *ngFor="let glheads of glHeadList" [value]="glheads">
+                            {{glheads}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="assetClassForm.controls['gl_heads'].invalid">Please select GL Heads
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <br />
+        <div class="d-flex flex-row justify-content-end">
+            <button mat-raised-button (click)="getSubmitButton()"
+                style="background-color: whitesmoke;float: right;">SUBMIT</button>
+        </div>
+    </form>
+
+    <div *ngIf="isShown" id="divshow">
+        <!-- <lib-text-separator [title]="separetorTitleList"></lib-text-separator> -->
+        <table style="width: 90%;align-items: center;margin-left: 50px;border: black;">
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>GL GROUP NAME</th>
+                    <th>ACCOUNT TYPE</th>
+                    <th>PARTICULARS</th>
+                    <th>STATUS</th>
+                    <th>ASSET NATURE</th>
+                    <th>ACTION</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of items; let i = index">
+                    <td>{{i+1}}</td>
+
+                    <td><span>{{item.glgroupname}}</span></td>
+                    <td><span>{{item.acc_type}}</span></td>
+                    <td>{{item.glheads}}</td>
+                    <td>{{item.status}}</td>
+                    <td></td>
+                    <td><input type="button" value="UPDATE" (click)="openDialog('Update',item)">
+                        {{item.action}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <mat-divider></mat-divider>
+        <br />
+        <div class="d-flex flex-row justify-content-end">
+            <button mat-raised-button (click)="getSubmitButton()"
+                style="background-color: whitesmoke;float: right;">SUBMIT</button>
+        </div>
+
+
+
+
+
+
+    </div>
+</section>

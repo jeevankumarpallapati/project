@@ -1,0 +1,59 @@
+<!-- <div class="container-fluid">
+  <h2>Registration Form</h2>
+  <form #myForm="ngForm">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group ">
+          <label for="inputUsername" class="form-label">Username</label>
+          <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+            aria-describedby="basic-addon1" name="username">
+        </div>
+        <div class="form-group ">
+          <label for="inputEmail4" class="form-label">Email</label>
+          <input type="email" class="form-control" placeholder="mail-id" aria-label="E-mail"
+            aria-describedby="basic-addon1">
+        </div>
+        <div class="form-group ">
+          <label for="inputPassword4" class="form-label">Password</label>
+          <input type="password" class="form-control" placeholder="Password" id="inputPassword4">
+        </div>
+        <div class="form-group ">
+          <label for="inputnumber" class="form-label">Mobile number</label>
+          <input type="number" class="form-control" placeholder="Mobile Number" aria-label="Enter Mobile No"
+            aria-describedby="basic-addon1">
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group ">
+          <label for="inputnumber" class="form-label">Alternate Number</label>
+          <input type="number" class="form-control" placeholder="Alternate Number" aria-label="Alternate Number"
+            aria-describedby="basic-addon1">
+        </div>
+        <div class="form-group">
+          <label for="inputAddress" class="form-label">Address</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+        </div>
+        <div class="form-group">
+          <label for="inputAddress2" class="form-label">Address 2</label>
+          <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+        </div>
+        <div class="form-group">
+          <label for="inputState" class="form-label">State</label><br>
+          <select id="inputState" class="form-select">
+            <option selected>Choose...</option>
+            <option *ngFor="let x of city">{{x}}</option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+  </form>
+</div>
+<button type="submit" class="btn btn-primary">Register</button>
+<!-- <div class="formData">
+{{myForm.value | json}}
+</div> --> -->
+
+
+<button (click)="sendMessage()">send Message</button>

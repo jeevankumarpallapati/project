@@ -1,0 +1,88 @@
+<div class="body-content body-cm1">
+    <div class="content-header business-name-div mb-3 cform">
+        <div class="business-name-child">
+            <div class="d-flex">
+                <div class="mr-2">
+                    <button disabled aria-label="nothing" class="business-icon rounded-circle">
+                        {{ businessNameFirstLetter }}
+                    </button>
+                </div>
+                <div class="businessName">
+                    <h4 class="m-0">{{ businessName }}</h4>
+                </div>
+            </div>
+        </div>
+        <button (click)="actionForResetButton()" style="color: #fff;float: right;">RESET</button>
+    </div>
+    <lib-text-separator [title]="separetorTitle"></lib-text-separator>
+</div>
+
+<section>
+    <form [formGroup]="assetClassForm" class="cform">
+        <div class="d-flex flex-row ">
+            <div class="col-md-6">
+                <span class="gl_sub_group_name">GL Sub Group Name<span style="color: red;"> *</span></span>&nbsp;
+                <mat-form-field appearance="outline">
+                    <mat-select formControlName="gl_sub_group_name" [(ngModel)]="newItem.glsubgroupname">
+                        <mat-option *ngFor="let sub_grp_name of subGroupList" [value]="sub_grp_name">
+                            {{sub_grp_name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="assetClassForm.controls['gl_sub_group_name'].invalid">Please enter
+                        GL Sub Group Name
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <span class="gl_group_name">GL Group Name<span style="color: red;"> *</span></span>&nbsp;
+                <mat-form-field appearance="outline">
+                    <mat-select formControlName="gl_group_name" [(ngModel)]="newItem.glgroupname">
+                        <mat-option *ngFor="let grp_name of groupList" [value]="grp_name">
+                            {{grp_name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="assetClassForm.controls['gl_group_name'].invalid">Please enter
+                        GL Group Name
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <br />
+        <div class="d-flex flex-row justify-content-end">
+            <button mat-raised-button (click)="getSubmitButton()"
+                style="background-color: whitesmoke;float: right;">SUBMIT</button>
+        </div>
+    </form>
+
+    <div *ngIf="isShown" id="divshow">
+        <lib-text-separator [title]="separetorTitleList"></lib-text-separator>
+        <table style="width: 90%;align-items: center;margin-left: 50px;border: black;">
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>GL SUB GROUP NAME</th>
+                    <th>GL GROUP NAME</th>
+                    <th>STATUS</th>
+                    <th>ACTION</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of items; let i = index">
+                    <td>{{i+1}}</td>
+                    <td><span>{{item.glsubgroupname}}</span></td>
+                    <td><span>{{item.glgroupname}}</span></td>
+                    <td></td>
+                    <td><input type="button" value="UPDATE" (click)="openDialog('Update',item)">
+                        {{item.action}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <mat-divider></mat-divider>
+        <br />
+        <div class="d-flex flex-row justify-content-end">
+            <button mat-raised-button (click)="actionForSubmitButton()"
+                style="background-color: whitesmoke;float: right;">SUBMIT</button>
+        </div>
+    </div>
+</section>

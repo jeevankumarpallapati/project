@@ -1,0 +1,27 @@
+.line{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    width: 100%;
+    height: 30px;
+}
+h2{
+    text-align: center;
+}
+th{
+    text-align: center;
+    
+}
+.h2{
+    float: right;
+    margin-right: 90px;
+}
+
+
+p{
+    text-align: right;
+}
+small{
+    border-top:2px solid black ;
+    font-size: 15px;
+    width: 250px;
+}

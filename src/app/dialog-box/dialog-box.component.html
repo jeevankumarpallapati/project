@@ -1,0 +1,37 @@
+<h1 mat-dialog-title>Row Action :: <strong>{{action}}</strong></h1>
+<div mat-dialog-content>
+    <mat-form-field>
+        <input placeholder="{{action}} SNO " matInput [(ngModel)]="local_data.sno
+        ">
+    </mat-form-field>
+
+</div>
+<div mat-dialog-content>
+    <mat-form-field>
+        <input placeholder="{{action}} GL Group name " matInput [(ngModel)]="local_data.glgroupname">
+    </mat-form-field>
+
+</div>
+<div mat-dialog-content>
+    <mat-form-field>
+        <input placeholder="{{action}}  ACCOUNT TYPE" matInput [(ngModel)]="local_data.acc_type">
+    </mat-form-field>
+
+</div>
+<div mat-dialog-content>
+    <mat-form-field>
+        <input placeholder="{{action}} PARTICULARS" matInput [(ngModel)]="local_data.glheads">
+    </mat-form-field>
+
+</div>
+<div mat-dialog-content>
+    <mat-form-field>
+        <input placeholder="{{action}} Status" matInput [(ngModel)]="local_data.status">
+    </mat-form-field>
+
+</div>
+
+<div mat-dialog-actions>
+    <button mat-button (click)="doAction()">{{action}}</button>
+    <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+</div>

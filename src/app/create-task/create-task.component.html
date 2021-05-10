@@ -1,0 +1,172 @@
+.<div class="body-content body-cm1">
+    <div class="content-header business-name-div mb-3 form">
+        <div class="business-name-child">
+            <div class="d-flex">
+                <div class="mr-2">
+                    <button disabled aria-label="nothing" class="business-icon rounded-circle">
+                        {{ businessNameFirstLetter }}
+                    </button>
+                </div>
+                <div class="businessName">
+                    <h4 class="m-0">{{ businessName }}</h4>
+                    <h5 class="m-0"> Existing Automobile Business</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <lib-text-separator [title]="separetorTitle"></lib-text-separator> -->
+    <div class="container">
+        <div *ngIf="showNew">
+            <form [formGroup]="taskForm" (ngSubmit)="onSave(taskForm.value)" novalidate>
+                <div class="d-flex flex-column">
+                    <div class="d-flex flex-row">
+                        <div class="col-md-6">
+                            <strong>Business Type </strong> &nbsp;
+                            <mat-form-field appearance="fill" floatLabel="always">
+                                <mat-select formControlName="business_type">
+                                    <mat-option *ngFor="let business of businessList" class="form-control">{{business}}
+                                    </mat-option>
+                                </mat-select>
+                                <!-- <small
+                                    [class.d-none]="taskForm.get('business_type').value || taskForm.get('business_type').untouched">
+                                    it is required</small> -->
+                                <!-- <small class="text-danger"
+                                    *ngIf="taskForm.controls['business_type'].touched && taskForm.controls['business_type'].errors">
+                                    it is requied
+                                </small> -->
+                                <small class="text-danger"
+                                    *ngIf="isSubmitted && taskForm.controls['business_type'].errors"> required</small>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>businessList</strong>
+                            <!-- <span>businessList<span style="color: red;"> *</span></span>&nbsp; -->
+                            <mat-form-field appearance="fill" floatLabel="always">
+                                <mat-select formControlName="verticals_type">
+                                    <mat-option *ngFor="let verticals of verticalsList" class="form-control">
+                                        {{verticals}}
+                                    </mat-option>
+                                </mat-select>
+
+                                <!-- <small class="text-danger"
+                                    *ngIf="taskForm.controls['verticals_type'].touched && taskForm.controls['verticals_type'].errors">
+                                    it is requied
+                                </small> -->
+                                <small class="text-danger"
+                                    *ngIf="isSubmitted && taskForm.controls['verticals_type'].errors"> required</small>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row ">
+                        <div class="col-md-6">
+                            <strong>Create Task</strong>
+                            <!-- <span>Create Task<span style="color: red;"> *</span></span>&nbsp; -->
+                            <mat-form-field appearance="fill">
+                                <input matInput [(ngModel)]="taskModel.taskName" formControlName="createTask">
+                                <!-- <small class="text-danger"
+                                    *ngIf="taskForm.controls['createTask'].touched && taskForm.controls['createTask'].errors">
+                                    it is requied
+                                </small> -->
+                                <small class="text-danger"
+                                    *ngIf="isSubmitted && taskForm.controls['createTask'].errors"> required</small>
+                            </mat-form-field>
+
+
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Priority</strong>
+                            <!-- <span>Priority<span style="color: red;"> *</span></span>&nbsp;-->
+                            <mat-form-field appearance="fill" floatLabel="always">
+                                <mat-select [(ngModel)]="taskModel.type" formControlName="priority_type">
+                                    <mat-option *ngFor="let priority of priorityList" [value]="priority">
+                                        {{priority}}
+                                    </mat-option>
+                                </mat-select>
+                                <!-- <mat-error *ngIf="hasError('business_type','required','Priority')">ID
+                                    is required
+                                </mat-error> -->
+                                <!-- <small class="text-danger"
+                                    *ngIf="taskForm.controls['priority_type'].touched && taskForm.controls['priority_type'].errors">
+                                    it is requied
+                                </small> -->
+                                <small class="text-danger"
+                                    *ngIf="isSubmitted && taskForm.controls['priority_type'].errors"> required</small>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row">
+                        <div class="col-md-6">
+                            <strong>Start Date / Time</strong>
+                            <!-- <span>Start Date / Time<span style="color: red;"> *</span></span>&nbsp; -->
+                            <input type="date"> &nbsp;
+                            <input type="time">
+                        </div>
+                        <div class="col-md-6">
+                            <strong>End Date / Time</strong>
+                            <!-- <span>End Date / Time<span style="color: red;"> *</span></span>&nbsp;-->
+                            <input type="date"> &nbsp;
+                            <input type="time">
+                        </div>
+                    </div>
+                    <br />
+                    <div class="d-flex flex-row">
+                        <div class="col-md-6">
+                            <strong>Task Details</strong>
+                            <!-- <span>Task Details<span style="color: red;"> *</span></span>&nbsp; -->
+                            <mat-form-field appearance="fill">
+                                <input matInput>
+
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Task Details</strong>
+                            <!-- <span>Status<span style="color: red;"> *</span></span>&nbsp; -->
+                            <mat-radio-group aria-label="Select an option" [(ngModel)]="taskModel.status">
+                                <mat-radio-button value="Active">Active</mat-radio-button>
+                                <mat-radio-button value="In Active">In Active</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex flex-row justify-content-end cform">
+                    <button mat-raised-button type="submit" class="btn btn-success">{{submitType}}</button>
+                    <!-- [disabled]="!taskForm.valid" -->
+                </div>
+                <br />
+            </form>
+        </div>
+
+
+
+
+
+
+
+
+
+        <div class="reglist">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>S.No.</th>
+                        <th>Task Name</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let registration of new_task; let i = index">
+                        <th scope="row">{{ i + 1 }}</th>
+                        <td>{{ registration.taskName }}</td>
+                        <td>{{ registration.type }}</td>
+                        <td>{{ registration.status }} </td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <div class="d-flex flex-row justify-content-end cform">
+                <button mat-raised-button class="btn btn-success" (click)="onNew()" type="submit">Create
+                    Task</button>
+            </div>
+        </div>
